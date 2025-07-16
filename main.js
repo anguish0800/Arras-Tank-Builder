@@ -478,155 +478,155 @@ function exportTank() { //Uses our varibles and sets "it" to the export code
     var facingType = document.getElementById("facingType").options[document.getElementById("facingType").selectedIndex].value;
     var maxChildren = document.getElementById("maxChildren").value;
     var damageEffects = document.getElementById("damageEffects").checked;
-    var it = "exports." + exportName + " = {\n"
+    var it = "Class." + exportName + " = {\n"
     if (parent !== "") {
-    it += "   PARENT: [exports." + parent + "],\n"
+    it += "    PARENT: \"" + parent + "\",\n"
     }
-    it += "   LABEL: \'" + label + "\',\n"
+    it += "    LABEL: \"" + label + "\",\n"
     if (type != "tank"||parent != "genericTank") {
-        it += "   TYPE: \'" + type + "\',\n"
+        it += "    TYPE: \"" + type + "\",\n"
     }
     if (shape != "0"||parent != "genericTank") {
-        it += "   SHAPE: " + shape + ",\n"
+        it += "    SHAPE: " + shape + ",\n"
     }
     if (damageClass != "2"||parent != "genericTank") {
-        it += "   DAMAGE_CLASS: " + damageClass + ",\n";
+        it += "    DAMAGE_CLASS: " + damageClass + ",\n";
     }
     if (danger != "5"||parent != "genericTank") {
-        it += "   DANGER: " + danger + ",\n";
+        it += "    DANGER: " + danger + ",\n";
     }
     if (motionType != "motor"||parent != "genericTank") {
-        it += "   MOTION_TYPE: \'" + motionType + "\',\n";
+        it += "    MOTION_TYPE: \'" + motionType + "\',\n";
     }
     if (facingType != "toTarget"||parent != "genericTank") {
-        it += "   FACING_TYPE: \'" + facingType + "\',\n";
+        it += "    FACING_TYPE: \'" + facingType + "\',\n";
     }
     if (document.getElementById("sizeNumInput").value != "12"||parent != "genericTank") {
-    it += "   SIZE: " + document.getElementById("sizeNumInput").value + ",\n"
+    it += "    SIZE: " + document.getElementById("sizeNumInput").value + ",\n"
     }
     if (maxChildren != "0"||parent != "genericTank") {
-        it += "   MAX_CHILDREN: " + maxChildren + ",\n";
+        it += "    MAX_CHILDREN: " + maxChildren + ",\n";
     }
     if (damageEffects != false||parent != "genericTank") {
-        it += "   DAMAGE_EFFECTS: " + damageEffects + ",\n";
+        it += "    DAMAGE_EFFECTS: " + damageEffects + ",\n";
     }
     if (colorID != -1) {
-        it += "   COLOR: " + colorID + ",\n";
+        it += "    COLOR: " + colorID + ",\n";
     }
     if (document.getElementById("accelerationenable").checked||document.getElementById("speedenable").checked||document.getElementById("healthenable").checked||document.getElementById("damageenable").checked||document.getElementById("penetrationenable").checked||document.getElementById("shieldenable").checked||document.getElementById("regenenable").checked||document.getElementById("fovenable").checked||document.getElementById("densityenable").checked||document.getElementById("pushabilityenable").checked||document.getElementById("heteroenable").checked) {
         it += "   BODY: {\n"
             if (document.getElementById("accelerationenable").checked) {
                 if (document.getElementById("accelerationbasemulti").checked) {
                     if (document.getElementById("acceleration").value!=1) {
-                        it += "      ACCELERATION: base.ACCEL * " + document.getElementById("acceleration").value + ",\n";
+                        it += "        ACCELERATION: base.ACCEL * " + document.getElementById("acceleration").value + ",\n";
                     } else {
-                        it += "      ACCELERATION: base.ACCEL,\n";
+                        it += "        ACCELERATION: base.ACCEL,\n";
                     }
                 } else {
-                    it += "      ACCELERATION: " + document.getElementById("acceleration").value + ",\n";
+                    it += "        ACCELERATION: " + document.getElementById("acceleration").value + ",\n";
                 }
             }
             if (document.getElementById("speedenable").checked) {
                 if (document.getElementById("speedbasemulti").checked) {
                     if (document.getElementById("speed").value!=1) {
-                        it += "      SPEED: base.SPEED * " + document.getElementById("speed").value + ",\n";
+                        it += "        SPEED: base.SPEED * " + document.getElementById("speed").value + ",\n";
                     } else {
-                        it += "      SPEED: base.SPEED,\n";
+                        it += "        SPEED: base.SPEED,\n";
                     }
                 } else {
-                    it += "      SPEED: " + document.getElementById("speed").value + ",\n";
+                    it += "        SPEED: " + document.getElementById("speed").value + ",\n";
                 }
             }
             if (document.getElementById("healthenable").checked) {
                 if (document.getElementById("healthbasemulti").checked) {
                     if (document.getElementById("health").value!=1) {
-                        it += "      HEALTH: base.HEALTH * " + document.getElementById("health").value + ",\n";
+                        it += "        HEALTH: base.HEALTH * " + document.getElementById("health").value + ",\n";
                     } else {
-                        it += "      HEALTH: base.HEALTH,\n";
+                        it += "        HEALTH: base.HEALTH,\n";
                     }
                 } else {
-                    it += "      HEALTH: " + document.getElementById("health").value + ",\n";
+                    it += "        HEALTH: " + document.getElementById("health").value + ",\n";
                 }
             }
             if (document.getElementById("damageenable").checked) {
                 if (document.getElementById("damagebasemulti").checked) {
                     if (document.getElementById("damage").value!=1) {
-                        it += "      DAMAGE: base.DAMAGE * " + document.getElementById("damage").value + ",\n";
+                        it += "        DAMAGE: base.DAMAGE * " + document.getElementById("damage").value + ",\n";
                     } else {
-                        it += "      DAMAGE: base.DAMAGE,\n";
+                        it += "        DAMAGE: base.DAMAGE,\n";
                     }
                 } else {
-                    it += "      DAMAGE: " + document.getElementById("damage").value + ",\n";
+                    it += "        DAMAGE: " + document.getElementById("damage").value + ",\n";
                 }
             }
             if (document.getElementById("penetrationenable").checked) {
                 if (document.getElementById("penetrationbasemulti").checked) {
                     if (document.getElementById("penetration").value!=1) {
-                        it += "      PENETRATION: base.PENETRATION * " + document.getElementById("penetration").value + ",\n";
+                        it += "        PENETRATION: base.PENETRATION * " + document.getElementById("penetration").value + ",\n";
                     } else {
-                        it += "      PENETRATION: base.PENETRATION,\n";
+                        it += "        PENETRATION: base.PENETRATION,\n";
                     }
                 } else {
-                    it += "      PENETRATION: " + document.getElementById("penetration").value + ",\n";
+                    it += "        PENETRATION: " + document.getElementById("penetration").value + ",\n";
                 }
             }
             if (document.getElementById("shieldenable").checked) {
                 if (document.getElementById("shieldbasemulti").checked) {
                     if (document.getElementById("shield").value!=1) {
-                        it += "      SHIELD: base.SHIELD * " + document.getElementById("shield").value + ",\n";
+                        it += "        SHIELD: base.SHIELD * " + document.getElementById("shield").value + ",\n";
                     } else {
-                        it += "      SHIELD: base.SHIELD,\n";
+                        it += "        SHIELD: base.SHIELD,\n";
                     }
                 } else {
-                    it += "      SHIELD: " + document.getElementById("shield").value + ",\n";
+                    it += "        SHIELD: " + document.getElementById("shield").value + ",\n";
                 }
             }
             if (document.getElementById("regenenable").checked) {
                 if (document.getElementById("regenbasemulti").checked) {
                     if (document.getElementById("regen").value!=1) {
-                        it += "      REGEN: base.REGEN * " + document.getElementById("regen").value + ",\n";
+                        it += "        REGEN: base.REGEN * " + document.getElementById("regen").value + ",\n";
                     } else {
-                        it += "      REGEN: base.REGEN,\n";
+                        it += "        REGEN: base.REGEN,\n";
                     }
                 } else {
-                    it += "      REGEN: " + document.getElementById("regen").value + ",\n";
+                    it += "        REGEN: " + document.getElementById("regen").value + ",\n";
                 }
             }
             if (document.getElementById("fovenable").checked) {
                 if (document.getElementById("fovbasemulti").checked) {
                     if (document.getElementById("fov").value!=1) {
-                        it += "      FOV: base.FOV * " + document.getElementById("fov").value + ",\n";
+                        it += "        FOV: base.FOV * " + document.getElementById("fov").value + ",\n";
                     } else {
-                        it += "      FOV: base.FOV,\n";
+                        it += "        FOV: base.FOV,\n";
                     }
                 } else {
-                    it += "      FOV: " + document.getElementById("fov").value + ",\n";
+                    it += "        FOV: " + document.getElementById("fov").value + ",\n";
                 }
             }
             if (document.getElementById("densityenable").checked) {
                 if (document.getElementById("densitybasemulti").checked) {
                     if (document.getElementById("density").value!=1) {
-                        it += "      DENSITY: base.DENSITY * " + document.getElementById("density").value + ",\n";
+                        it += "        DENSITY: base.DENSITY * " + document.getElementById("density").value + ",\n";
                     } else {
-                        it += "      DENSITY: base.DENSITY,\n";
+                        it += "        DENSITY: base.DENSITY,\n";
                     }
                 } else {
-                    it += "      DENSITY: " + document.getElementById("density").value + ",\n";
+                    it += "        DENSITY: " + document.getElementById("density").value + ",\n";
                 }
             }
             if (document.getElementById("pushabilityenable").checked) {
-                it += "      PUSHABLE: " + document.getElementById("pushability").value + ",\n";
+                it += "        PUSHABILITY: " + document.getElementById("pushability").value + ",\n";
             }
             if (document.getElementById("heteroenable").checked) {
-                it += "      HETERO: " + document.getElementById("hetero").value + ",\n";
+                it += "        HETERO: " + document.getElementById("hetero").value + ",\n";
             }
-        it += "   },\n"
+        it += "    },\n"
     }
     if (guns.length > 0) {
-        it += "   GUNS: [ ";
+        it += "    GUNS: [ ";
         for (var i = 0; i < guns.length; i++) {
             var [LENGTH, WIDTH, ASPECT, X, Y, ANGLE, DELAY] = guns[i].POSITION;
-            it += "{\n         POSITION: [ " + LENGTH + ", " + WIDTH + ", " + ASPECT + ", " + X + ", " + Y + ", " + ANGLE + ", " + DELAY + ", ],\n";
+            it += "\n        {\n            POSITION: [" + LENGTH + ", " + WIDTH + ", " + ASPECT + ", " + X + ", " + Y + ", " + ANGLE + ", " + DELAY + "],\n";
             var showProperties = false;
             //PROPERTIES is an object
             for (var j = 0; j < Object.keys(guns[i].PROPERTIES).length; j++) {
@@ -636,26 +636,26 @@ function exportTank() { //Uses our varibles and sets "it" to the export code
                 }
             }
             if (showProperties) {
-                it += "         PROPERTIES: {\n";
+                it += "            PROPERTIES: {\n";
                 if (guns[i].PROPERTIES.SHOOT_SETTINGS!=null) {
-                    it += "            SHOOT_SETTINGS: combineStats([" + guns[i].PROPERTIES.SHOOT_SETTINGS + "]),\n";
+                    it += "                SHOOT_SETTINGS: combineStats([" + guns[i].PROPERTIES.SHOOT_SETTINGS + "]),\n";
                 }
                 if (guns[i].PROPERTIES.TYPE!=null) {
-                    it += "            TYPE: exports." + guns[i].PROPERTIES.TYPE + ",\n";
+                    it += "                TYPE: \"" + guns[i].PROPERTIES.TYPE + "\",\n";
                 }
                 if (guns[i].PROPERTIES.LABEL!=null) {
-                    it += "            LABEL: \'" + guns[i].PROPERTIES.LABEL + "\',\n";
+                    it += "                LABEL: \"" + guns[i].PROPERTIES.LABEL + "\",\n";
                 }
-                it += "         }, }, ";
+                it += "            },\n        },";
             } else {
-            it += "         }, ";
+            it += "        },";
             }
         }
         
-        it += "\n     ],\n";
+        it += "\n    ],\n";
     }
 
-    it += "};\n";
+    it += "}\n";
     return it;
 }
 
